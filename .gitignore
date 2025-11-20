@@ -1,0 +1,19 @@
+# Dependências (Pesadas, não enviar)
+node_modules/
+
+# Builds (Gerados automaticamente)
+dist/
+.angular/
+
+# Banco de dados local (Não enviar)
+*.db
+*.sqlite
+dev.db
+
+# Variáveis de Ambiente (Segurança!)
+.env
+
+# Logs e sistema
+*.log
+.DS_Store
+.vscode/

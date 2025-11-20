@@ -1,0 +1,78 @@
+// api/prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // <--- MUDANÇA CRÍTICA: De 'sqlite' para 'postgresql'
+  url      = env("DATABASE_URL") // <--- Lê a conexão das configurações do servidor
+}
+
+// --- MODELOS DE DADOS (Inalterados) ---
+
+enum Role {
+  CLIENTE
+  ADMIN
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  nome      String
+  senha     String
+  cpf       String   @unique
+  rg        String?  
+  
+  // Endereço
+  cep       String
+  rua       String
+  numero    String
+  bairro    String
+  cidade    String
+  estado    String
+
+  role      Role     @default(CLIENTE)
+  
+  pedidos   Pedido[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Produto {
+  id          Int      @id @default(autoincrement())
+  nome        String
+  descricao   String
+  preco       Float
+  estoque     Int
+  imagemUrl   String 
+  
+  itensPedido ItemPedido[]
+}
+
+model Pedido {
+  id        Int      @id @default(autoincrement())
+  status    String   @default("PENDENTE")
+  total     Float
+  frete     Float    
+  
+  usuarioId Int
+  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  
+  itens     ItemPedido[]
+  
+  createdAt DateTime @default(now())
+}
+
+model ItemPedido {
+  id          Int     @id @default(autoincrement())
+  quantidade  Int
+  precoUnitario Float 
+  
+  produtoId Int
+  produto   Produto @relation(fields: [produtoId], references: [id])
+  
+  pedidoId  Int
+  pedido    Pedido  @relation(fields: [pedidoId], references: [id])
+}
