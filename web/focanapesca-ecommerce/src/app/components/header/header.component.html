@@ -1,0 +1,43 @@
+<header class="main-header">
+  <div class="header-content">
+
+    <div class="logo">
+      <a href="/">FOCANAPESCA</a>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="O que você está procurando?">
+      <button>Buscar</button>
+    </div>
+
+    <nav class="nav-icons">
+
+      <div *ngIf="usuario; else visitante" class="user-menu">
+        <span class="welcome-msg">Olá, {{ usuario.nome }}!</span>
+
+        <a routerLink="/meus-pedidos" class="nav-link" style="font-size: 0.9rem; text-decoration: underline;">
+        Meus Pedidos
+        </a>
+
+        <a *ngIf="usuario.role === 'ADMIN'" routerLink="/admin/produtos" class="nav-link admin-link">
+          <span>➕ Add Produto</span>
+        </a>
+
+        <button (click)="fazerLogout()" class="logout-btn">Sair</button>
+      </div>
+
+      <ng-template #visitante>
+        <a routerLink="/login" class="nav-link">
+          <span class="icon">👤</span>
+          <span>Minha Conta</span>
+        </a>
+      </ng-template>
+
+      <a href="/carrinho" class="nav-link">
+        <span class="icon">🛒</span>
+        <span>Carrinho</span>
+      </a>
+    </nav>
+
+  </div>
+</header>

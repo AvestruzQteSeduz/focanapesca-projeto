@@ -1,0 +1,119 @@
+/* src/app/pages/cadastro/cadastro.component.scss */
+
+.cadastro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.cadastro-form {
+  width: 100%;
+  max-width: 800px; // Aumenta a largura para caber o endereço
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+    color: #004d40; // Mesmo verde do logo
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+
+    &:focus {
+      border-color: #004d40;
+      box-shadow: 0 0 0 2px rgba(0, 77, 64, 0.2);
+      outline: none;
+    }
+  }
+}
+
+// Para campos lado a lado (ex: Cidade e Estado)
+.form-group-inline {
+  display: flex;
+  gap: 1.5rem; // Espaçamento entre os campos
+
+  .form-group {
+    flex: 1; // Faz os campos ocuparem o mesmo espaço
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0c14b; // Amarelo do header
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #e6b33a;
+  }
+
+  &:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+}
+
+// Mensagens de Erro
+.error-msg {
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+.alert-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+.alert-danger {
+  background-color: #f2dede;
+  color: #a94442;
+}

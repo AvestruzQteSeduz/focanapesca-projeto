@@ -1,0 +1,75 @@
+/* src/app/components/footer/footer.component.scss */
+
+:host {
+  display: block;
+  margin-top: auto; // Empurra o footer para o final se o conteúdo for curto
+}
+
+.main-footer {
+  background-color: #232f3e; // Azul escuro (estilo Amazon/e-commerces)
+  color: #ffffff;
+  padding-top: 3rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap; // Permite quebrar linha em telas pequenas
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem 2rem;
+}
+
+.footer-section {
+  flex: 1; // Cada seção ocupa o mesmo espaço
+  min-width: 250px; // Tamanho mínimo para não ficar espremido
+  margin-bottom: 1.5rem;
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f0c14b; // Detalhe amarelo
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+
+  p, a {
+    color: #dddddd;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #f0c14b; // Amarelo no hover
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+.payment-methods {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+
+  .badge {
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+}
+
+.copyright {
+  background-color: #131a22; // Um tom ainda mais escuro
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: #999;
+  border-top: 1px solid #3a4553;
+}

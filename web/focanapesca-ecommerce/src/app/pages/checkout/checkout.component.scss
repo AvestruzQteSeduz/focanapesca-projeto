@@ -1,0 +1,146 @@
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.checkout-form-section {
+  flex: 2;
+}
+
+.checkout-summary-section {
+  flex: 1;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    color: #004d40;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Grid do Formulário */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: #555;
+  }
+
+  input, select {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+
+    &:read-only {
+      background-color: #f9f9f9;
+      color: #777;
+    }
+  }
+
+  .error { color: red; font-size: 0.8rem; }
+}
+
+/* Tamanhos específicos das colunas */
+.col-cep { flex: 1; max-width: 150px; }
+.col-rua { flex: 3; }
+.col-num { flex: 1; max-width: 100px; }
+.col-bairro { flex: 2; }
+.col-cidade { flex: 3; }
+.col-uf { flex: 1; max-width: 80px; }
+
+/* Estilo do Resumo */
+.summary-card {
+  position: sticky;
+  top: 20px; /* Faz o resumo acompanhar a rolagem */
+  background-color: #fcfcfc;
+}
+
+.summary-items {
+  margin-bottom: 1.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+}
+
+.summary-totals {
+  border-top: 2px solid #ddd;
+  padding-top: 1rem;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .freight { color: #e67e22; }
+
+  .total {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #004d40;
+    margin-top: 1rem;
+  }
+
+  .calculating {
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #999;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  background-color: #f0c14b;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover { background-color: #e6b33a; }
+  &:disabled { background-color: #ccc; cursor: not-allowed; }
+}
+
+.mobile-only { display: none; }
+@media (max-width: 768px) {
+  .mobile-only { display: block; }
+  .desktop-only { display: none; }
+}

@@ -1,0 +1,13 @@
+<div class="home-container">
+  <h2>Nossos Produtos</h2>
+
+  <div class="product-grid">
+    @for (produto of produtos; track produto.id) {
+
+        <app-product-card [product]="produto"></app-product-card>
+
+    } @empty {
+      <p>Nenhum produto encontrado. (Verifique se sua API está rodando!)</p>
+    }
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="admin-container">
+  <div class="form-card">
+    <h2>Cadastrar Novo Produto</h2>
+
+    <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Nome do Produto</label>
+        <input type="text" formControlName="nome" placeholder="Ex: Vara de Pesca Carbono">
+      </div>
+
+      <div class="form-group">
+        <label>Descrição</label>
+        <textarea formControlName="descricao" rows="3" placeholder="Detalhes do produto..."></textarea>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Preço (R$)</label>
+          <input type="number" formControlName="preco" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label>Estoque (Qtd)</label>
+          <input type="number" formControlName="estoque" placeholder="0">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>URL da Imagem</label>
+        <input type="text" formControlName="imagemUrl" placeholder="https://...">
+        <small>Copie o link da imagem do Google Imagens e cole aqui</small>
+      </div>
+
+      <div class="preview" *ngIf="produtoForm.get('imagemUrl')?.value">
+        <p>Pré-visualização:</p>
+        <img [src]="produtoForm.get('imagemUrl')?.value" alt="Preview" onerror="this.style.display='none'">
+      </div>
+
+      <div *ngIf="mensagemSucesso" class="alert success">{{ mensagemSucesso }}</div>
+      <div *ngIf="mensagemErro" class="alert error">{{ mensagemErro }}</div>
+
+      <button type="submit" [disabled]="produtoForm.invalid">Cadastrar Produto</button>
+    </form>
+  </div>
+</div>

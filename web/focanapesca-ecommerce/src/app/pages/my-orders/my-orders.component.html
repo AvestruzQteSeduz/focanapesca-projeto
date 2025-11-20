@@ -1,0 +1,38 @@
+<div class="orders-container">
+  <h2>Meus Pedidos</h2>
+
+  <div *ngIf="loading" class="loading">Carregando...</div>
+
+  <div *ngIf="!loading && pedidos.length === 0" class="empty-state">
+    <p>Você ainda não fez nenhuma compra.</p>
+    <a routerLink="/" class="btn-shop">Ir as Compras</a>
+  </div>
+
+  <div class="orders-list">
+    <div *ngFor="let pedido of pedidos" class="order-card">
+
+      <div class="order-header">
+        <div>
+          <span class="order-id">Pedido #{{ pedido.id }}</span>
+          <span class="order-date">{{ pedido.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+        <div class="order-status">{{ pedido.status }}</div>
+      </div>
+
+      <div class="order-items">
+        <div *ngFor="let item of pedido.itens" class="item-row">
+          <span>{{ item.quantidade }}x {{ item.produto.nome }}</span>
+          <span>R$ {{ item.precoUnitario }}</span>
+        </div>
+      </div>
+
+      <div class="order-footer">
+        <div class="info">
+          <span>Frete: R$ {{ pedido.frete.toFixed(2) }}</span>
+          <span class="total">Total: R$ {{ pedido.total.toFixed(2) }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

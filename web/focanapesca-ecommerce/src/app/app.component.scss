@@ -1,0 +1,20 @@
+/* src/styles.scss */
+
+/* Reseta margens e paddings de tudo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Uma fonte padrão limpa */
+  background-color: #f4f4f4; /* Um cinza claro de fundo, como no e-commerce */
+}
+
+main {
+  /* Garante que o conteúdo principal ocupe
+     pelo menos a altura da tela (menos o footer, se o fixarmos) */
+  min-height: 80vh;
+  padding: 20px; /* Um respiro para o conteúdo */
+}

@@ -1,0 +1,136 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h2 {
+    color: #004d40;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Estilo para carrinho vazio */
+.empty-cart {
+  text-align: center;
+  padding: 3rem;
+
+  p { font-size: 1.5rem; color: #666; margin-bottom: 1.5rem; }
+
+  .btn-continue {
+    background-color: #004d40;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+
+    &:hover { background-color: #00332a; }
+  }
+}
+
+/* Layout do Carrinho (Lista na esq, Resumo na dir) */
+.cart-content {
+  display: flex;
+  gap: 2rem;
+
+  @media(max-width: 768px) { flex-direction: column; }
+}
+
+.items-list {
+  flex: 2; /* Ocupa mais espaço */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: white;
+  gap: 1rem;
+
+  .item-img { width: 80px; height: 80px; object-fit: contain; }
+
+  .item-details { flex: 1; h3 { font-size: 1rem; color: #333; } .unit-price { color: #666; font-size: 0.9rem; } }
+
+  .item-total { font-weight: bold; color: #004d40; font-size: 1.1rem; }
+
+  .btn-remove { background: none; border: none; cursor: pointer; font-size: 1.2rem; &:hover { transform: scale(1.1); } }
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 4px;
+
+  span {
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  .btn-qty {
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; /* Faz ficar redondinho */
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #004d40;
+
+    &:hover {
+      background-color: #e0e0e0;
+      border-color: #999;
+    }
+  }
+}
+
+/* Card de Resumo */
+.cart-summary {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+
+  h3 { margin-bottom: 1.5rem; font-size: 1.2rem; }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #555;
+
+    &.total {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #000;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    button {
+      width: 100%; padding: 1rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;
+    }
+
+    .btn-checkout { background-color: #f0c14b; color: #111; &:hover { background-color: #e6b33a; } }
+    .btn-clear { background-color: transparent; border: 1px solid #ccc; color: #666; &:hover { background-color: #eee; } }
+  }
+}

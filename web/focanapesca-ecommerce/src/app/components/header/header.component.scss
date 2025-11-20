@@ -1,0 +1,125 @@
+/* src/app/components/header/header.component.scss */
+
+/* :host é como o Angular se refere ao componente <app-header> */
+:host {
+  display: block; // Faz o componente se comportar como um bloco
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Sombra sutil
+}
+
+.main-header {
+  background-color: #ffffff; // Fundo branco
+  padding: 1rem 2rem; // 1rem em cima/baixo, 2rem nas laterais
+}
+
+.header-content {
+  display: flex; // A MÁGICA: alinha tudo em uma linha
+  justify-content: space-between; // Espaça os 3 itens igualmente
+  align-items: center; // Alinha verticalmente no centro
+  max-width: 1400px; // Limita a largura (como no site modelo)
+  margin: 0 auto; // Centraliza o conteúdo
+}
+
+/* 1. Estilo do Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  a {
+    text-decoration: none;
+    color: #004d40; // Um tom de verde-escuro/azul-petróleo
+  }
+}
+
+/* 2. Estilo da Barra de Busca */
+.search-bar {
+  display: flex;
+  flex-grow: 1; // Faz a barra de busca tentar ocupar o espaço disponível
+  margin: 0 2rem; // Um respiro nas laterais
+  max-width: 600px; // Limita o tamanho da barra
+
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px; // Arredonda a borda esquerda
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0 1.5rem;
+    border: none;
+    background-color: #f0c14b; // Um tom de amarelo/dourado
+    color: #111;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0; // Arredonda a borda direita
+
+    &:hover {
+      background-color: #e6b33a;
+    }
+  }
+}
+
+/* 3. Estilo dos Ícones de Navegação */
+.nav-icons {
+  display: flex;
+  align-items: center;
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin-left: 1.5rem; // Espaçamento entre os ícones
+    font-size: 0.9rem;
+
+    .icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      color: #004d40; // Muda a cor no hover
+    }
+  }
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .welcome-msg {
+    font-weight: bold;
+    color: #004d40;
+  }
+
+  .logout-btn {
+    background: none;
+    border: 1px solid #cc0000;
+    color: #cc0000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+
+    &:hover {
+      background-color: #cc0000;
+      color: white;
+    }
+  }
+
+  .admin-link {
+     background-color: #004d40;
+     color: white !important;
+     padding: 5px 10px;
+     border-radius: 4px;
+     text-decoration: none;
+     font-size: 0.8rem;
+
+     &:hover {
+       background-color: #00695c;
+     }
+  }
+}

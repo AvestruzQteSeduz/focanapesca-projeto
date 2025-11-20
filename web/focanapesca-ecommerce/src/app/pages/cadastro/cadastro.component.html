@@ -1,0 +1,93 @@
+<div class="cadastro-container">
+  <form class="cadastro-form" [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <h2>Crie sua Conta</h2>
+
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+
+      <div class="form-group">
+        <label for="nome">Nome Completo:</label>
+        <input id="nome" type="text" formControlName="nome" placeholder="Seu nome completo">
+        <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched" class="error-msg">
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" placeholder="seuemail@dominio.com">
+        <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched" class="error-msg">
+          Por favor, insira um email válido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <input id="senha" type="password" formControlName="senha" placeholder="Mínimo 8 caracteres">
+        <div *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched" class="error-msg">
+          A senha deve ter no mínimo 8 caracteres, incluindo uma maiúscula, uma minúscula, um número e um caractere especial.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cpf">CPF:</label>
+        <input id="cpf" type="text" formControlName="cpf" placeholder="000.000.000-00" mask="000.000.000-00">
+        <div *ngIf="cadastroForm.get('cpf')?.errors?.['cpfInvalido'] && cadastroForm.get('cpf')?.touched" class="error-msg">
+          CPF inválido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="rg">RG (Opcional):</label>
+        <input id="rg" type="text" formControlName="rg">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Endereço de Entrega</legend>
+
+      <div class="form-group">
+        <label for="cep">CEP:</label>
+        <input id="cep" type="text" formControlName="cep" placeholder="00000-000" mask="00000-000">
+      </div>
+
+      <div class="form-group">
+        <label for="rua">Rua:</label>
+        <input id="rua" type="text" formControlName="rua">
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="numero">Número:</label>
+          <input id="numero" type="text" formControlName="numero">
+        </div>
+        <div class="form-group">
+          <label for="bairro">Bairro:</label>
+          <input id="bairro" type="text" formControlName="bairro">
+        </div>
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="cidade">Cidade:</label>
+          <input id="cidade" type="text" formControlName="cidade">
+        </div>
+        <div class="form-group">
+          <label for="estado">Estado (UF):</label>
+          <input id="estado" type="text" formControlName="estado" placeholder="SP">
+        </div>
+      </div>
+    </fieldset>
+
+    <div *ngIf="mensagemSucesso" class="alert alert-success">
+      {{ mensagemSucesso }}
+    </div>
+    <div *ngIf="mensagemErro" class="alert alert-danger">
+      {{ mensagemErro }}
+    </div>
+
+    <button type="submit" [disabled]="cadastroForm.invalid" class="submit-btn">
+      Criar Conta
+    </button>
+  </form>
+</div>
