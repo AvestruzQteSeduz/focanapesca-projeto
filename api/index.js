@@ -243,7 +243,19 @@ app.get('/pedidos/meus-pedidos', checkAuth, async (req, res) => {
     res.status(500).json({ error: 'Erro ao buscar pedidos.' });
   }
 });
-
+// --- ROTA TEMPORÁRIA PARA VIRAR ADMIN ---
+app.get('/setup-admin/:email', async (req, res) => {
+  const { email } = req.params;
+  try {
+    const usuario = await prisma.usuario.update({
+      where: { email: email },
+      data: { role: 'ADMIN' }
+    });
+    res.json({ message: `Sucesso! O usuário ${email} agora é ADMIN.`, usuario });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao promover usuário (verifique se o email existe).' });
+  }
+});
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
